@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dashboard - QR Code</title>
+    <link href="../admin/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../admin/vendor/chartist/css/chartist.min.css">
+    <link href="../admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../admin/css/style.css" rel="stylesheet">
+    <script src="../js/qrcode.js"></script>
+    <!-- Include the qrcode-generator library -->
+
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+
+    <!-- row -->
+    <div class="text-center mt-5">
+        <center> <div id="qrcode"></div></center>
+        <br>
+        <h2>Please scan code using the attendance app to take attendance</h2>
+        <form action="">
+            <input type="hidden" class="form-control" readonly id="code">
+            <br>
+            <button class="btn btn-secondary btn-sm btn-md"
+            style="background-color: #115E38;box-shadow: none;border: none;">
+            Close Attendance</button>
+        </form>
+    </div>
+
+
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+    </div>
+    <script>
+        const email = localStorage.getItem("email");
+        const attendanceLink = document.querySelector("#attendance-link");
+        if (email) {
+            // If email is available in localStorage, create the link with the email query parameter
+            attendanceLink.href = `/attendence/?email=${email}`;
+        } else {
+            window.open('/lecturer', '_self');
+        }
+    </script>
+    <script>
+         document.getElementById("code").value = '<%=result %>';
+        const qrcodeElement = document.getElementById('qrcode');
+
+        // Create a QRCode object with the random text
+        const qrcode = new QRCode(qrcodeElement, {
+            text: '<%=result %>',
+            width: 350,
+            height: 350,
+        });
+    </script>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="../admin/vendor/global/global.min.js"></script>
+    <script src="../admin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../admin/vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="../admin/js/custom.min.js"></script>
+    <script src="../admin/js/deznav-init.js"></script>
+
+    <!-- Counter Up -->
+    <script src="../admin/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="../admin/vendor/jquery.counterup/jquery.counterup.min.js"></script>
+
+    <!-- Apex Chart -->
+    <script src="../admin/vendor/apexchart/apexchart.js"></script>
+
+    <!-- Chart piety plugin files -->
+    <script src="../admin/vendor/peity/jquery.peity.min.js"></script>
+
+    <!-- Dashboard 1 -->
+    <script src="../admin/js/dashboard/dashboard-1.js"></script>
+
+
+</body>
+
+</html>

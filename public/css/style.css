@@ -1,0 +1,244 @@
+@font-face{
+  font-family: 'Mont';
+  src: url('../fonts/SFPRODISPLAYREGULAR.OTF');
+}
+@font-face{
+  font-family: 'Bold';
+  src: url('../fonts/SFPRODISPLAYBOLD.OTF');
+}
+@font-face{
+  font-family: 'Medium';
+  src: url('../fonts/SFPRODISPLAYMEDIUM.OTF');
+}
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Mont';
+}
+#header{
+  margin-top: 20px;
+}
+#header .col-md-12 h1{
+  color: #FDE1D6;
+  font-family: 'Bold' !important;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 1000 !important;
+}
+#header .col-md-12 span{
+  color: #115E38;
+  font-family: 'Bold' !important;
+  font-weight: 1000 !important;
+}
+#header .col-md-12 h1:hover{
+  color: #115E38 !important;
+  transition: 0.5s;
+}
+#header .col-md-12 a{
+  text-decoration: none;
+}
+#main{
+  margin-top: 80px;
+}
+#main .dark{
+   color: #000;
+    font-family: 'Medium' !important;
+    font-size: 75px;
+    text-align: center;
+    font-weight: 600;
+}
+#main .rotate{
+   color: #115E38;
+    font-family: 'Bold' !important;
+    font-size: 75px;
+    text-align: center;
+    font-weight: 600;
+}
+#main h5{
+    color: #000;
+    text-align: center;
+    margin-top: 40px;
+}
+#main .inputField{
+  margin-top: 60px;
+}
+#main .inputField .ctg{
+  padding: 20px;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+#main .inputField .state{
+  padding: 20px;
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+#main .inputField button{
+  padding: 20px;
+  border: none;
+  width: 150px;
+  background-color: #115E38;
+  color:  #fff;
+  border-radius: 10px;
+}
+
+
+#main .inputFieldsrch{
+  margin-top: -20px;
+}
+#main .inputFieldsrch .ctg{
+  padding: 20px;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+#main .inputFieldsrch .state{
+  padding: 20px;
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+#main .inputFieldsrch button{
+  padding: 20px;
+  border: none;
+  width: 150px;
+  background-color: #115E38;
+  color:  #fff;
+  border-radius: 10px;
+}
+#footer{
+  margin-top: 100px;
+}
+#footer h1{
+  color: #ddd;
+  text-align: center;
+}
+#footer h6{
+  color: #000;
+  text-align: center;
+  padding: 50px;
+}
+#admin_dashboard{
+  position: absolute;
+  width: 600px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 50px;
+  max-width: 600px;
+  background-color: #fff;
+}
+#admin_dashboard h3{
+  color: #115E38;
+  font-family: 'Bold' !important;
+  font-weight: 1000 !important;
+  text-align: center;
+}
+#admin_dashboard h4{
+  margin-top: 20px;
+  text-align: center;
+  font-family: Bold;
+  color: #115E38;
+  line-height: 0.7em;
+}
+#admin_dashboard h6{
+  text-align: center;
+  font-family: Bold;
+  margin-bottom: 30px;
+}
+#admin_dashboard input{
+  padding: 25px;
+  border: 1px solid #ddd;
+  box-shadow: none;
+  margin-bottom: 20px;
+}
+#admin_dashboard input:focus{
+  border: 1px solid #115E38;
+  transition: 0.5s;
+}
+#admin_dashboard #save{
+  background-color: #115E38 !important;
+  border: none;
+  box-shadow: none;
+}
+.searchResult{
+  margin-top: 70px;
+}
+.searchResult a{
+  color: #000;
+  text-decoration: none;
+}
+.searchResult a:hover{
+  color: #000;
+  text-decoration: none;
+}
+.searchResult h6{
+  font-family: 'Bold';
+  text-align: left !important;
+  font-size: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 7px;
+}
+.bottomInfo {
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    #main .dark{
+      font-size: 44px;
+      font-weight: 1000;
+    }
+    #main{
+      margin-top: 40px;
+    }
+    #main .rotate{
+     font-size: 44px;
+     font-weight: 1000;
+    }
+    #main .inputFieldsrch{
+      margin-top: 30px;
+    }
+    #main .inputFieldsrch .ctg{
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    #main .inputFieldsrch .state{
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    #main .inputFieldsrch button{
+      width: 100%;
+    }
+    
+    #main .inputField{
+      margin-top: 30px;
+    }
+    #main .inputField .ctg{
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    #main .inputField .state{
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    #main .inputField button{
+      width: 100%;
+    }
+    #footer h1{
+      font-size: 28px;
+    }
+    #footer h6{
+      padding: 10px;
+      margin-top: 30px;
+    }
+}
+
+
+
+
+
+

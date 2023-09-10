@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dashboard - QR Code</title>
+    <link href="admin/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="admin/vendor/chartist/css/chartist.min.css">
+    <link href="admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="admin/css/style.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/sweetalert.js"></script>
+</head>
+
+<body>
+
+   
+
+                <!--*******************
+        Preloader start
+    ********************-->
+                <div id="preloader">
+                    <div class="sk-three-bounce">
+                        <div class="sk-child sk-bounce1"></div>
+                        <div class="sk-child sk-bounce2"></div>
+                        <div class="sk-child sk-bounce3"></div>
+                    </div>
+                </div>
+                <!--*******************
+        Preloader end
+    ********************-->
+
+                <!--**********************************
+        Main wrapper start
+    ***********************************-->
+                <div id="main-wrapper">
+
+                    <!--**********************************
+            Nav header start
+        ***********************************-->
+                    <div class="nav-header">
+                        <a href="" class="brand-logo">
+                            <center><img src="../../img/logo.png" style="width: 35%;"></center>
+                        </a>
+
+                        <div class="nav-control">
+                            <div class="hamburger">
+                                <span class="line"></span><span class="line"></span><span class="line"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--**********************************
+            Nav header end
+        ***********************************-->
+
+
+
+                    <!--**********************************
+            Header start
+        ***********************************-->
+                    <div class="header">
+                        <div class="header-content">
+                            <nav class="navbar navbar-expand">
+                                <div class="collapse navbar-collapse justify-content-between">
+                                    <div class="header-left">
+
+                                    </div>
+
+                                    <ul class="navbar-nav header-right">
+                                        <li class="nav-item dropdown notification_dropdown">
+                                            <a class="nav-link dz-fullscreen primary" href="#">
+                                                <svg id="Capa_1" enable-background="new 0 0 482.239 482.239" height="22"
+                                                    viewBox="0 0 482.239 482.239" width="22"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="m0 17.223v120.56h34.446v-103.337h103.337v-34.446h-120.56c-9.52 0-17.223 7.703-17.223 17.223z"
+                                                        fill="" />
+                                                    <path
+                                                        d="m465.016 0h-120.56v34.446h103.337v103.337h34.446v-120.56c0-9.52-7.703-17.223-17.223-17.223z"
+                                                        fill="" />
+                                                    <path
+                                                        d="m447.793 447.793h-103.337v34.446h120.56c9.52 0 17.223-7.703 17.223-17.223v-120.56h-34.446z"
+                                                        fill="" />
+                                                    <path
+                                                        d="m34.446 344.456h-34.446v120.56c0 9.52 7.703 17.223 17.223 17.223h120.56v-34.446h-103.337z"
+                                                        fill="" />
+                                                </svg>
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item dropdown header-profile">
+                                            <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                                <div class="header-info">
+                                                    <span>Welcome, <strong>Admin</strong></span>
+                                                </div>
+                                                <img src="img/user.svg">
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+
+
+                                                <a href="logout" class="dropdown-item ai-icon">
+                                                    <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg"
+                                                        class="text-danger" width="18" height="18" viewBox="0 0 24 24"
+                                                        fill="none" stroke="currentColor" stroke-width="2"
+                                                        stroke-linecap="round" stroke-linejoin="round">
+                                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                                        <polyline points="16 17 21 12 16 7"></polyline>
+                                                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                                                    </svg>
+                                                    <span class="ml-2">Logout </span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+                    <!--**********************************
+            Sidebar start
+        ***********************************-->
+                    <div class="deznav">
+                        <div class="deznav-scroll">
+                            <ul class="metismenu" id="menu">
+                                <li><a class="ai-icon active" href="/dashboard" aria-expanded="false">
+                                        <i class="flaticon-381-networking"></i>
+                                        <span class="nav-text">Dashboard</span>
+                                    </a>
+                                </li>
+                                <li><a href="/register-student" class="ai-icon" aria-expanded="false">
+                                        <i class="flaticon-381-file"></i>
+                                        <span class="nav-text">Register Student</span>
+                                    </a>
+                                </li>
+                                <li><a href="/view-students" class="ai-icon" aria-expanded="false">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="nav-text">View Students</span>
+                                    </a>
+                                </li>
+
+                                <li><a href="/register-lecturer" class="ai-icon" aria-expanded="false">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="nav-text">Register Lecturer</span>
+                                    </a>
+                                </li>
+
+                                <li><a href="/view-lecturer" class="ai-icon" aria-expanded="false">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="nav-text">View Lecturer</span>
+                                    </a>
+                                </li>
+
+                                <li><a href="/register-course" class="ai-icon" aria-expanded="false">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="nav-text">Register Course</span>
+                                    </a>
+                                </li>
+
+                                <li><a href="/view-course" class="ai-icon" aria-expanded="false">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="nav-text">View Course</span>
+                                    </a>
+                                </li>
+
+
+
+                                <li><a href="/logout" class="ai-icon" aria-expanded="false">
+                                        <i class="flaticon-381-controls-3"></i>
+                                        <span class="nav-text">Logout</span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+                    <!--**********************************
+            Content body start
+        ***********************************-->
+                    <div class="content-body">
+                        <!-- row -->
+                        <div class="container-fluid">
+                            <div class="form-head d-flex mb-3 align-items-start">
+                                <div class="mr-auto d-none d-lg-block">
+                                    <h2 class="text-black font-w600 mb-0">Register New Lecturer</h2>
+                                    <p class="mb-0">Fill in the fields correctly to register lecturer</p>
+
+                                </div>
+                            </div>
+                            <div class="row">
+
+
+                                <div class="col-xl-12 col-lg-12">
+                                    <div class="card">
+
+                                        <div class="card-body">
+                                            <div class="basic-form">
+
+
+                                                <form method="POST" action="/register-lecturer-api">
+                                                    <div class="form-row" id="newcourse">
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Name</label>
+                                                            <input type="text" id="name" class="form-control"
+                                                                name="name" placeholder="Lecturer's name" required>
+                                                        </div>
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Email</label>
+                                                            <input type="email" id="email" class="form-control"
+                                                                name="email" placeholder="Lecturer's email" required>
+                                                        </div>
+
+                                                        <div class="form-group col-md-12">
+                                                            <label>Password</label>
+                                                            <input type="password" id="password" class="form-control"
+                                                                name="pword" placeholder="Lecturer's password" required>
+                                                        </div>
+
+                                                        <div class="form-group col-md-12">
+                                                            <label>Add Course</label> <button type="button"
+                                                                class="btn btn-success btn-sm"
+                                                                onclick="addEntry();"><span
+                                                                    class="fa fa-plus"></span></button>
+                                                        </div>
+
+
+
+
+
+
+
+                                                        <div class="form-group col-md-6">
+                                                            <label>Course</label>
+                                                            <select name="course[]" class="form-control"
+                                                                id="courseSelect">
+                                                                <% result.forEach(course=> { %>
+                                                                    <option value="<%= course.data.course %>">
+                                                                        <%= course.data.course %>
+                                                                    </option>
+                                                                    <% }); %>
+                                                            </select>
+
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label>Level</label>
+                                                            <select name="level[]" id="" class="form-control">
+                                                                <option value="ND 1">ND 1</option>
+                                                                <option value="ND 2">ND 2</option>
+                                                                <option value="HND 1">HND 1</option>
+                                                                <option value="HND 2">HND 2</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="form-group col-md-12" id="lecturer">
+
+                                                        </div>
+
+
+                                                        <br><br>
+
+                                                        <div class="form-group col-md-12">
+                                                            <button class="btn btn-secondary btn-sm btn-block btn-lg"
+                                                                style="background-color: #115E38;box-shadow: none;border: none;">
+                                                                Proceed</button>
+                                                        </div>
+
+
+
+                                                    </div>
+
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+                </div>
+                <!--**********************************
+        Main wrapper end
+    ***********************************-->
+                <script>
+                    function addEntry() {
+                        var entry = `
+    <div class="form-group col-md-6">
+        <label>Course</label>
+        <select name="course[]" class="form-control" id="courseSelect">
+            <% result.forEach(course => { %>
+                <option value="<%= course.data.course %>"><%= course.data.course %></option>
+            <% }); %>
+        </select>
+    </div>
+    <div class="form-group col-md-6">
+        <label>Level</label>
+        <select name="level[]" id="" class="form-control">
+            <option value="ND 1">ND 1</option>
+            <option value="ND 2">ND 2</option>
+            <option value="HND 1">HND 1</option>
+            <option value="HND 2">HND 2</option>
+        </select>
+    </div>
+`;
+
+
+                        var element = document.createElement("div");
+                        element.setAttribute('class', 'row');
+                        element.innerHTML = entry;
+                        document.getElementById('lecturer').appendChild(element);
+
+                    }
+                </script>
+                <!--**********************************
+        Scripts
+    ***********************************-->
+                <!-- Required vendors -->
+                <script src="admin/vendor/global/global.min.js"></script>
+                <script src="admin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+                <script src="admin/vendor/chart.js/Chart.bundle.min.js"></script>
+                <script src="admin/js/custom.min.js"></script>
+                <script src="admin/js/deznav-init.js"></script>
+
+                <!-- Counter Up -->
+                <script src="admin/vendor/waypoints/jquery.waypoints.min.js"></script>
+                <script src="admin/vendor/jquery.counterup/jquery.counterup.min.js"></script>
+
+                <!-- Apex Chart -->
+                <script src="admin/vendor/apexchart/apexchart.js"></script>
+
+                <!-- Chart piety plugin files -->
+                <script src="admin/vendor/peity/jquery.peity.min.js"></script>
+
+                <!-- Dashboard 1 -->
+                <script src="admin/js/dashboard/dashboard-1.js"></script>
+
+
+</body>
+
+</html>

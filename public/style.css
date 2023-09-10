@@ -1,0 +1,37 @@
+@font-face{
+    font-family: 'Mont';
+    src: url(fonts/Montserrat-Regular.ttf);
+  }
+  @font-face{
+    font-family: 'Bold';
+    src: url(fonts/Montserrat-Bold.ttf);
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+html,
+body{
+    font-family: "Mont",sans-serif;
+}
+
+  .notfound{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: 100%;
+  }
+  .notfound img{
+      width: 20%;
+      margin: 0 auto;
+      display: block;
+  }
+  .notfound button{
+    border-radius: 0px;
+    background-color: #1b1464;
+    border: none;
+    box-shadow: none;
+}
