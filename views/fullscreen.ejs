@@ -30,10 +30,11 @@
         <center> <div id="qrcode"></div></center>
         <br>
         <h2>Please scan code using the attendance app to take attendance</h2>
-        <form action="">
+        <form id="login" name="form1" method="post">
             <input type="hidden" class="form-control" readonly id="code">
+            <input type="hidden" name="docid" id="docid">
             <br>
-            <button class="btn btn-secondary btn-sm btn-md"
+            <button class="btn btn-secondary btn-sm btn-md" id="save"
             style="background-color: #115E38;box-shadow: none;border: none;">
             Close Attendance</button>
         </form>
@@ -47,6 +48,39 @@
 
     </div>
     <script>
+        const form = document.getElementById("login");
+        form.addEventListener('submit', login);
+        async function login(event){
+            event.preventDefault();
+           var btn = document.getElementById("save");
+           btn.disabled = true;
+           btn.innerHTML=  "Please wait..";
+            const code = document.getElementById('code').value;
+            var docid = localStorage.getItem("docID");
+            const result = await fetch("/api/close-attendance", {
+                method: "POST",
+                headers: {
+                    'Content-type':'application/json'
+                },
+                body: JSON.stringify({
+                    code,
+                    docid
+                })
+            }).then((res)=> res.json());
+
+            if(result.status == "ok"){
+                localStorage.removeItem("docID");
+                btn.disabled = true;
+                btn.innerHTML=  "Attendance Close. You can close this tab";
+            }else{
+                btn.disabled = false;
+           btn.innerHTML=  "Error try again";
+           console.log(result.error);
+                
+            }
+        }
+    </script>
+    <script>
         const email = localStorage.getItem("email");
         const attendanceLink = document.querySelector("#attendance-link");
         if (email) {
@@ -57,6 +91,8 @@
         }
     </script>
     <script>
+        var id = localStorage.getItem("docID");
+        document.getElementById("docid").value = id;
          document.getElementById("code").value = '<%=result %>';
         const qrcodeElement = document.getElementById('qrcode');
 

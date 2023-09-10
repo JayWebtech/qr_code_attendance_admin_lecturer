@@ -21,6 +21,9 @@ let adminRef = db.collection("admin")
 let students = db.collection("students")
 let course = db.collection("course")
 let lecturer = db.collection("lecturer")
+let attendance = db.collection("attendance")
+
+
 app.get("/", (req, res) => {
 
     res.render("index");
@@ -88,23 +91,39 @@ app.post("/register-student-api", async (req, res) => {
 });
 
 app.post("/api/take-attendance", async (req, res) => {
-    const { course, level, code } = req.body;
+    const { course, level, code,lecemail } = req.body;
     const currentDate = new Date();
     const currentTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
 
     try {
-        const docRef = await db.collection('students').add({
+        const docRef = await db.collection('attendance').add({
             status: "OPEN",
             course: course,
             date: currentDate,
             level: level,
             code: code,
-            time: currentTime
+            time: currentTime,
+            email: lecemail
         });
-        
+        return res.json({ status: 'ok', docId: docRef.id, error: 'Success' });
+    } catch (error) {
+        console.error(error);
+        return res.json({ status: 'error', error: error });
+    }
+    
+});
+
+app.post("/api/close-attendance", async (req, res) => {
+    const { docid } = req.body;
+    
+    try {
+        attendance.doc(docid).update({status: "CLOSE"}).then(() =>{
+            return res.json ({ status: 'ok', error: 'Success'})
+        }); 
         return res.json ({ status: 'ok', error: 'Success'})
     } catch (error) {
-        return res.json ({ status: 'error', error: 'Something went wrong'})
+        console.log(error)
+        return res.json ({ status: 'error', error: error})
     }
 });
 
@@ -243,7 +262,6 @@ app.get('/attendence', async (req, res)=>{
             var id = querySnapshot.docs.map((doc) => ({data: doc.data(), id: doc.id}));
             const objectToArrayx = Object.entries(id)
             var datax = new Map(objectToArrayx)
-            console.log(datax);
             res.render('attendence', { result:datax});
         }else{
             res.render('attendence', { result:datax});

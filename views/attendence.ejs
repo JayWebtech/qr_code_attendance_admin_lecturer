@@ -189,7 +189,7 @@
                                                 <div class="row">
                                                     <div class="form-group col-md-9">
                                                         <label>Course</label>
-                                                        <select name="course" class="form-control" id="courseSelect">
+                                                        <select name="course" class="form-control" id="course">
                                                             <% result.forEach(course=> { %>
                                                                 <% course.data.course.split(',').forEach(courseItem=> {
                                                                     %>
@@ -200,7 +200,7 @@
                                                                         <% }); %>
                                                         </select>
                                                         <label>Level</label>
-                                                        <select name="level" id="levelSelect" class="form-control">
+                                                        <select name="level" id="level" class="form-control">
                                                             <% result.forEach(level=> { %>
                                                                 <% level.data.level.split(',').forEach(levelItem=> { %>
                                                                     <option value="<%= levelItem.trim() %>">
@@ -210,6 +210,8 @@
                                                                         <% }); %>
                                                         </select>
                                                         <input type="hidden" class="form-control" name="code" readonly id="code">
+                                                        <input type="hidden" class="form-control" name="email" readonly id="lectemail">
+                                                        <input type="hidden" name="docid" id="docid">
                                                         <br><br>
                                                         <button id="save" class="btn btn-secondary btn-sm btn-block btn-md"
                                                         style="background-color: #115E38;box-shadow: none;border: none;">
@@ -260,7 +262,7 @@
            var btn = document.getElementById("save");
            btn.disabled = true;
            btn.innerHTML=  "Please wait..";
-           
+           const lecemail = localStorage.getItem("email");
             const level = document.getElementById('level').value;
             const course = document.getElementById('course').value;
             const code = document.getElementById('code').value;
@@ -272,22 +274,23 @@
                 body: JSON.stringify({
                     level,
                     course,
-                    code
+                    code,
+                    lecemail
                 })
             }).then((res)=> res.json());
 
             if(result.status == "ok"){
-                btn.disabled = false;
-           btn.innerHTML=  "Record Stored! Open QR Code in full screen";
+                
+               
+                localStorage.setItem("docID", result.docId);
+               
+                btn.disabled = true;
+                btn.innerHTML=  "Record Stored! Open QR Code in full screen";
             }else{
                 btn.disabled = false;
            btn.innerHTML=  "Error try again";
-                iziToast.error({
-                title: 'Error',
-                message: 'Error try again',
-                position: 'topLeft',
-                animateInside: true,
-                });
+           console.log(result.error);
+                
             }
         }
     </script>
@@ -295,6 +298,7 @@
     <script>
         const email = localStorage.getItem("email");
         const attendanceLink = document.querySelector("#attendance-link");
+        const lectemail = document.getElementById("lectemail").value = email;
         if (email) {
             // If email is available in localStorage, create the link with the email query parameter
             attendanceLink.href = `/attendence/?email=${email}`;
