@@ -11,7 +11,7 @@ app.use(express.static("public"))
 app.use(express.urlencoded({extended:true}))
 
 var admin = require("firebase-admin");
-var serviceAccount = require("./qr-code-aa74c-bc691b234809.json");
+var serviceAccount = require("qr-code-aa74c-bc691b234809.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://qr-code-aa74c.firebaseio.com"
