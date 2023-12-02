@@ -11,7 +11,7 @@ app.use(express.static("public"))
 app.use(express.urlencoded({extended:true}))
 
 var admin = require("firebase-admin");
-var serviceAccount = require("qr-code-aa74c-bc691b234809.json");
+var serviceAccount = require("./qr-code-aa74c-bc691b234809.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://qr-code-aa74c.firebaseio.com"
@@ -22,6 +22,7 @@ let students = db.collection("students")
 let course = db.collection("course")
 let lecturer = db.collection("lecturer")
 let attendance = db.collection("attendance")
+let studentattendance = db.collection("student_attendance")
 
 
 app.get("/", (req, res) => {
@@ -265,6 +266,20 @@ app.get('/attendence', async (req, res)=>{
             res.render('attendence', { result:datax});
         }else{
             res.render('attendence', { result:datax});
+        }
+    })
+});
+
+app.get('/view-attendance', async (req, res)=>{
+    const email = req.query.email;
+    studentattendance.where("email", "==", email).get().then((querySnapshot) => {
+        if(!querySnapshot.empty){
+            var id = querySnapshot.docs.map((doc) => ({data: doc.data(), id: doc.id}));
+            const objectToArrayx = Object.entries(id)
+            var datax = new Map(objectToArrayx)
+            res.render('view-attendance', { result:datax });
+        }else{
+            res.render('view-attendance', { result:datax });
         }
     })
 });

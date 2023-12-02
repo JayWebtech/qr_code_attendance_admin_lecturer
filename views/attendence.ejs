@@ -137,11 +137,11 @@
                         </a>
                     </li>
 
-                    <li><a href="/view-attendance" class="ai-icon" aria-expanded="false">
-                            <i class="flaticon-381-user"></i>
-                            <span class="nav-text">View Attendance</span>
-                        </a>
-                    </li>
+                    <li><a href="" id="attendance-view" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-381-user"></i>
+                        <span class="nav-text">View Attendance</span>
+                    </a>
+                </li>
 
 
 
@@ -304,6 +304,16 @@
             attendanceLink.href = `/attendence/?email=${email}`;
         } else {
             window.open('/lecturer', '_self');
+        }
+    </script>
+     <script>
+        const emailx = localStorage.getItem("email");
+        const attendanceLinkx = document.querySelector("#attendance-view");
+        if (emailx) {
+            // If email is available in localStorage, create the link with the email query parameter
+            attendanceLinkx.href = `/view-attendance/?email=${emailx}`;
+        } else {
+            window.open('/lecturer','_self');
         }
     </script>
     <script>
